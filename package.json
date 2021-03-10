@@ -8,10 +8,8 @@
   "license": "CC0-1.0",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "GPG",
+    "Security"
   ],
   "main": "main.js",
   "scripts": {
