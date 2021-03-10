@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "A minimal GPG Electron application",
   "repository": "tech-slayers/desktopgpg",
-  "author": "Yasir Turk <yasirmturk@gmail.com>",
+  "author": "TechSlayers <support@techslayers.com>",
   "license": "CC0-1.0",
   "keywords": [
     "Electron",
@@ -46,7 +46,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "electron_quick_start"
+            "name": "DesktopGPG"
           }
         },
         {
