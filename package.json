@@ -1,7 +1,18 @@
 {
   "name": "gpg-electron",
+  "productName": "DesktopGPG",
   "version": "1.0.0",
   "description": "A minimal GPG Electron application",
+  "repository": "tech-slayers/desktopgpg",
+  "author": "TechSlayers <support@techslayers.com>",
+  "license": "CC0-1.0",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -11,16 +22,6 @@
     "makem": "electron-forge make --platform mas",
     "makew32": "electron-forge make --platform win32 --arch ia32"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "Yasir Turk <yasirmturk@gmail.com>",
-  "license": "CC0-1.0",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.54",
     "@electron-forge/maker-deb": "^6.0.0-beta.54",
@@ -32,6 +33,7 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "electron-squirrel-startup": "^1.0.0",
+    "electron-util": "^0.14.2",
     "fs-extra": "^9.1.0",
     "jquery": "^3.6.0",
     "openpgp": "^5.0.0-1",
@@ -44,7 +46,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "electron_quick_start"
+            "name": "DesktopGPG"
           }
         },
         {
