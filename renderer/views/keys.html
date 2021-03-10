@@ -44,8 +44,10 @@
             cols="auto"
             name="private-key"
             id="txt-pvt-key"
-            placeholder="Paste your existing key here"
+            placeholder="Generated/Imported key here"
           ></textarea>
+          <br>
+          <button id="private-cpy-btn">Copy Key</button>
         </div>
         <div class="col">
           <label for="txt-pub-key">Public Key: </label><br />
@@ -54,8 +56,10 @@
             cols="auto"
             name="public-key"
             id="txt-pub-key"
-            placeholder="Paste your existing key here"
+            placeholder="Generated/Imported key here"
           ></textarea>
+          <br>
+          <button id="public-cpy-btn">Copy Key</button>
         </div>
       </div>
       <hr />
@@ -75,7 +79,7 @@
           <input
             type="password"
             id="txt-passphrase"
-            placeholder="come up with a secure password"
+            placeholder="Secured Key Password"
             required
           /><br />
           <input
