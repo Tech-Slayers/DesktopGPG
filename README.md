@@ -1,4 +1,49 @@
-# DesktopGPG
+<h1 align="center">
+  <br>
+  <a href="https://techslayers.com/"><img src="https://techslayers.com/wp-content/uploads/2020/09/Tech-Slayers_2.0-2048x399.png" alt="Naomi" width="400"></a>
+  <br>
+  <br>
+</h1>
+
+<h4 align="center">A simple and portable PGP management application</h4>
+
+<p align="center">
+	<a href="">
+    	<img src="https://img.shields.io/badge/electron-v12.0-blue.svg">
+    </a>
+    <a href=" https://snyk.io/test/github/tech-slayers/desktopgpg/">
+      <img src=" https://snyk.io/test/github/tech-slayers/desktopgpg/badge.svg"/>
+    </a>
+    </br>
+    </br>
+    <a href="https://github.com/tech-slayers/desktopgpg/issues">
+    	<img src="https://img.shields.io/github/issues/tech-slayers/desktopgpg.svg">
+    </a>
+    <a href="">
+    	<img src="https://img.shields.io/badge/contributions-welcome-orange.svg">
+    </a>
+    <a href="https://opensource.org/licenses/CCO">
+    	<img src="https://img.shields.io/badge/license-CCO-blue.svg">
+    </a>
+</p>
+
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#documentation">Documentation</a> •
+  <a href="#download">Download</a> •
+  <a href="#license">License</a>
+</p>
+
+## Key Features
+
+* Cross Platform
+  * Can be used on any platform and transported around as a portable executable.
+* GPG Management
+  * DesktopGPG makes managing gpg keys, encrypting, & decrypting files easy.
+
+## Documentation
+
+All the documentation will be available soon!
 
 **Instructions.**
 
@@ -8,18 +53,15 @@ npm install && npm run start
 
 npm run make
 
-## Contents
+## Download
 
-The application must be cross-platform.
+You can [download](https://github.com/Tech-Slayers/DesktopGPG/releases) the latest version of DesktopGPG from the release on the sidebar.
 
-The main function of the application is to manage gpg keys and easily decrypt files.
+## License
 
-The private key is stored in the application and is used to decrypt files that were encrypted using the public key.
+CCO 1.0
 
-The public key should be download able as a file so that it can be easily shared.
+---
 
-The application should act as a viewer for decrypted data and should hold decrypted data in memory until a request is made to save it to a file.
-
-If the decrypted data is not saved to a file it should be discarded.
-
-The application should be password protected.
+> [techslayers.com](https://techslayers.com) &nbsp;&middot;&nbsp;
+> GitHub [@tech-slayers](https://github.com/tech-slayers)
