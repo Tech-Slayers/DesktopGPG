@@ -1,5 +1,6 @@
 $("#private-cpy-btn").removeAttr("style").hide();
 $("#public-cpy-btn").removeAttr("style").hide();
+$("#fingerprint-cpy-btn").removeAttr("style").hide();
 
 $("#btn-generate-key").on("click", function (e) {
   e.preventDefault();
@@ -32,6 +33,7 @@ $("#btn-generate-key").on("click", function (e) {
   }
   $("#private-cpy-btn").show();
   $("#public-cpy-btn").show();
+  $("#fingerprint-cpy-btn").show();
 });
 
 $("#btn-import-key").on("click", function (e) {

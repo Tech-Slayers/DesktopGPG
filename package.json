@@ -44,7 +44,8 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "DesktopGPG"
+            "name": "DesktopGPG",
+            "description": "A minimal GPG Electron application"
           }
         },
         {
