@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu } = require("electron");
+const { openUrlMenuItem, openNewGitHubIssue, debugInfo } = require('electron-util');
 const path = require("path");
 
 function createWindow() {
@@ -61,3 +62,70 @@ ipcMain.handle("app:get-keys", () => {
 ipcMain.handle("app:download-public-key", (event, private) => {
   io.downloadPublicKey(private);
 });
+
+const menuTemplate = Menu.buildFromTemplate([
+  {
+    role: 'fileMenu'
+  },
+  {
+    role: 'editMenu'
+  },
+  {
+  	role: 'viewMenu'
+  },
+  {
+  	label: 'Help',
+    submenu: [
+      openUrlMenuItem({
+        label: 'Website',
+        url: 'https://techslayers.com'
+      }),
+      openUrlMenuItem({
+        label: 'Source Code',
+        url: 'https://github.com/tech-slayers/desktopgpg'
+      }),
+      {
+        label: 'Open an Issue on GitHub',
+        click() {
+          const body =
+`<!-- Please succinctly describe your issue and steps to reproduce it. -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+${debugInfo()}`;
+          openNewGitHubIssue({
+            user: 'tech-slayers',
+            repo: 'desktopgpg',
+            body
+          });
+        },
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'reload'
+      },
+      {
+        role: 'forceReload'
+      },
+      {
+        role: 'toggleDevTools'
+      },
+    ],
+  },
+]);
+
+Menu.setApplicationMenu(menuTemplate);
