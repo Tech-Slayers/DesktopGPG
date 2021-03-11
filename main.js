@@ -1,7 +1,8 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain, Menu } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu, dialog } = require("electron");
 const { openUrlMenuItem, openNewGitHubIssue, debugInfo } = require('electron-util');
 const path = require("path");
+const fs = require('fs');
 
 if (require('electron-squirrel-startup')) return;
 
@@ -13,6 +14,7 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: true
     },
   });
 
@@ -84,7 +86,7 @@ const menuTemplate = Menu.buildFromTemplate([
       }),
       openUrlMenuItem({
         label: 'Source Code',
-        url: 'https://github.com/tech-slayers/desktopgpg'
+        url: 'https://github.com/tech-slayers/Janus'
       }),
       {
         label: 'Open an Issue on GitHub',
@@ -124,26 +126,14 @@ If applicable, add screenshots to help explain your problem.
 ${debugInfo()}`;
           openNewGitHubIssue({
             user: 'tech-slayers',
-            repo: 'desktopgpg',
+            repo: 'janus',
             assignee: 'AustinCasteel',
             body
           });
         },
       },
-      {
-        type: 'separator'
-      },
-      {
-        role: 'reload'
-      },
-      {
-        role: 'forceReload'
-      },
-      {
-        role: 'toggleDevTools'
-      },
     ],
   },
 ]);
 
-Menu.setApplicationMenu(menuTemplate);
+Menu.setApplicationMenu(menuTemplate); 

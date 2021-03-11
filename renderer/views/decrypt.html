@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Decrypt/Verify Files - Janus</title>
+    <link rel="stylesheet" href="../css/app.global.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <button class="btn btn-primary" type="button" id="SEF-cancel-btn">Back</button>
+      </form>
+    </nav>
+    <hr />
+    <div id="1" class="container-fluid">
+      <!-- <h4>Select existing or upload Temporary Private Key:</h4>
+      <div class="form-row">
+        <div class="col align-self-center">
+          <label for="sel-key">Stored keys:</label><br />
+          <select id="sel-keys"></select
+          ><br />
+        </div>
+        <div class="col align-self-center">
+          <label for="file-key">Import from file:</label>
+          <input type="file" id="file-key" />
+        </div>
+      </div>
+      <hr />
+      <div class="form-row">
+        <div class="col">
+          <label for="txt-passphrase">Please enter key password:</label>
+          <input
+            type="password"
+            id="txt-passphrase"
+            placeholder="looong &amp; hard to guess"
+            required
+          />
+        </div>
+      </div> -->
+      <h4>Import Private Key:</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="file-key">Import from file:</label>
+          <input type="file" id="file-key" />
+        </div>
+        <div class="col">
+          <div class="col">
+            <label for="txt-passphrase">Please enter key password:</label>
+            <input
+              type="password"
+              id="txt-passphrase"
+              placeholder="Secured Key Password"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <!-- <div class="form-row">
+        <div class="col"></div>
+        <div class="col">
+          <button class="btn btn-primary" id="btn-import-key">Import Private Key</button>
+        </div>
+        <div class="col"></div>
+      </div> -->
+    </div>
+    <br />
+    <div id="2" class="container-fluid">
+      <h4>Decryption:</h4>
+      <div class="container">
+        <fieldset class="form-row">
+          <div class="col align-self-center">
+            <label for="file-encrypted">Encrypted file:</label>
+            <input type="file" id="file-encrypted" />
+            <label for="encrypted">Encrypted Message:</label><br />
+            <textarea
+              rows="5"
+              cols="30"
+              name="encrypted"
+              id="encrypted"
+            ></textarea>
+          </div>
+          <div class="col align-self-center">
+            <button class="btn btn-primary" id="btn-decrypt">&gt;&gt;</button>
+          </div>
+          <div class="col">
+            <label>Plain file:</label><br />
+            <button class="btn btn-primary" id="btn-show">View</button>
+            <button class="btn btn-success" id="btn-save">Save</button
+            ><iframe id="iframe" hidden></iframe><br />
+            <label for="decrypted">Plain Message:</label><br />
+            <textarea
+              rows="5"
+              cols="30"
+              name="decrypted"
+              id="decrypted"
+            ></textarea>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <!-- Button Control-->
+    <input id="encrypt-btn-clicked" type="file" accept="" hidden />
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/decrypt.js"></script>
+  </body>
+</html> 
