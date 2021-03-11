@@ -59,7 +59,7 @@ You can [download](https://github.com/Tech-Slayers/Janus/releases) the latest ve
 
 ## License
 
-CCO 1.0
+MIT
 
 ---
 
