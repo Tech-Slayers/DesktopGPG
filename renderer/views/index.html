@@ -2,140 +2,77 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Desktop GPG!</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Janus</title>
     <link rel="stylesheet" href="../css/app.global.css" />
   </head>
   <body>
-    <div class="container-fluid">
-      <h2>Desktop GPG!</h2>
-      <!-- Using Node.js <span id="node-version"></span>, Chromium
-      <span id="chrome-version"></span>, and Electron
-      <span id="electron-version"></span>. -->
-    </div>
-    <nav class="navbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="./keys.html" target="_blank"
-            >Add or Import Keys</a
-          >
-        </li>
-      </ul>
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <button class="btn btn-primary" type="button" id="encrypt-btn-main" disabled>Sign/Encrypt</button>
+        <hr class="line-vertical-hidden"/>
+        <button class="btn btn-primary" type="button" id="decrypt-btn-main">Decrypt/Verify</button>
+        <hr class="line-vertical"/>
+        <button class="btn btn-primary" type="button" id="new_pair-btn-main">New Key Pair</button>
+        <hr class="line-vertical-hidden"/>
+        <button class="btn btn-primary" type="button" id="import-btn-main" disabled>Import</button>
+        <hr class="line-vertical-hidden"/>
+        <button class="btn btn-primary" type="button" disabled>Export</button>
+        <hr class="line-vertical-hidden"/>
+        <button class="btn btn-primary" type="button" disabled>Certify</button>
+      </form>
     </nav>
-    <hr />
     <div class="container-fluid">
-      <h4>Select existing or upload Temporary Private Key:</h4>
+      <h4>Information:</h4>
       <div class="form-row">
-        <div class="col align-self-center">
-          <label for="sel-key">Stored keys:</label><br />
-          <select id="sel-keys"></select
-          ><br />
-          <button id="btn-export-key">Export Public Key</button>
-        </div>
-        <div class="col align-self-center">
-          <label for="file-key">Import from file:</label>
-          <input type="file" id="file-key" />
-          <button id="btn-import-key">Import Private Key</button>
-        </div>
+        <p>Welcome to Janus</p>
       </div>
-      <hr />
       <div class="form-row">
-        <div class="col">
-          <label for="txt-passphrase">Please enter key password:</label>
-          <input
-            type="password"
-            id="txt-passphrase"
-            placeholder="come up with a secure password"
-            required
-          />
+        <p>Currently you are able to generate and save new key pairs as well as decrypt files</p>
+      </div>
+      <div class="form-row">
+        <p>Coming soon you will be able to encrypt files, use Janus as a key manager allowing key import & export, etc.</p>
+      </div>
+    </div>
+    <!-- Button Control-->
+    <input id="encrypt-btn-clicked" type="file" accept="" hidden />
+    <input id="decrypt-btn-clicked" type="file" accept="" hidden />
+    <input id="import-btn-clicked" type="file" accept="" hidden />
+    <!-- Modal Control-->
+    <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="importModalLabel">Import Keys</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="file-loading">
+              <label for="file-pvt-key" class="form-label">Private key: </label>
+              <input id="file-pvt-key" name="pvt-key" multiple type="file"/>
+            </div>
+            <div id="pvt-key-errors"></div>
+          </div>
+          <div class="modal-body">
+            <div class="file-loading">
+              <label for="file-pub-key" class="form-label">Public key: </label>
+              <input id="file-pub-key" name="pub-key" multiple type="file"/>
+            </div>
+            <div id="pub-key-errors"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button id="btn-import-key" type="button" class="btn btn-primary" title="import key" data-dismiss="modal">Save</button>
+          </div>
         </div>
       </div>
-      <hr />
-      <h4>Decryption:</h4>
-      <div class="container">
-        <fieldset class="form-row">
-          <div class="col align-self-center">
-            <label for="file-encrypted">Encrypted file:</label>
-            <input type="file" id="file-encrypted" />
-            <label for="encrypted">Encrypted Message:</label><br />
-            <textarea
-              rows="5"
-              cols="30"
-              name="encrypted"
-              id="encrypted"
-            ></textarea>
-          </div>
-          <div class="col align-self-center">
-            <button id="btn-decrypt">&gt;&gt;</button>
-          </div>
-          <div class="col">
-            <label for="file-encrypted">Plain file:</label><br />
-            <button id="btn-show">View</button>
-            <button id="btn-save">Save</button
-            ><iframe id="iframe" hidden></iframe><br />
-            <label for="decrypted">Plain Message:</label><br />
-            <textarea
-              rows="5"
-              cols="30"
-              name="decrypted"
-              id="decrypted"
-            ></textarea>
-          </div>
-        </fieldset>
-      </div>
-      <hr />
-      <!-- <h2>Encryption:</h2>
-      <div class="container">
-        <fieldset class="form-row">
-          <div class="col">
-            <label for="txt-public-key">Public Key: </label><br />
-            <textarea
-              rows="5"
-              cols="auto"
-              name="public-key"
-              id="txt-public-key"
-            ></textarea>
-          </div>
-          <div class="col">
-            <label for="encrypted">Plain Message: </label><br />
-            <textarea
-              rows="5"
-              cols="auto"
-              name="encrypted"
-              id="encrypted"
-            ></textarea>
-          </div>
-          <div class="col justify-content-center align-items-center">
-            <button>&gt;&gt;</button>
-          </div>
-          <div class="col">
-            <label for="decrypted">Encrypted Message: </label><br />
-            <textarea
-              rows="5"
-              cols="auto"
-              name="decrypted"
-              id="decrypted"
-            ></textarea>
-          </div>
-        </fieldset>
-      </div> -->
     </div>
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/index.js"></script>
-    <!-- You can also require other files to run in this process -->
-    <script src="../renderer.js"></script>
   </body>
 </html>

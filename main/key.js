@@ -33,5 +33,5 @@ module.exports = {
       userIds: [{ name, email }], // you can pass multiple user IDs
       passphrase, // protects the private key
     });
-  },
+  }
 };

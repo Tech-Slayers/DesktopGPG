@@ -1,11 +1,11 @@
 {
-  "name": "gpg-electron",
-  "productName": "DesktopGPG",
+  "name": "janus",
+  "productName": "Janus",
   "version": "1.0.0",
-  "description": "A minimal GPG Electron application",
-  "repository": "tech-slayers/desktopgpg",
-  "author": "TechSlayers <support@techslayers.com>",
-  "license": "CC0-1.0",
+  "description": "Simple and Portable Key Management Software",
+  "repository": "tech-slayers/janus",
+  "author": "AustinCasteel <austin@techslayers.com>",
+  "license": "MIT",
   "keywords": [
     "Electron",
     "GPG",
@@ -44,7 +44,8 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "DesktopGPG"
+            "name": "Janus",
+            "description": "Simple and Portable Key Management Software"
           }
         },
         {

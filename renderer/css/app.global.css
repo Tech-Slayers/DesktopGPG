@@ -1,1 +1,19 @@
 @import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.line-vertical {
+    width: 1px;
+    height: 34px;
+    float: left;
+    background-color: gray;
+    margin: 10px;
+}
+.line-vertical-hidden {
+    width: 1px;
+    height: 34px;
+    float: left;
+    background-color: #F8F9FA;
+    margin: 10px;
+}
+.btn-mar-top {
+    margin-top: 20px;
+}

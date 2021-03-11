@@ -1,3 +1,7 @@
+$("#private-cpy-btn").removeAttr("style").hide();
+$("#public-cpy-btn").removeAttr("style").hide();
+$("#fingerprint-cpy-btn").removeAttr("style").hide();
+
 $("#btn-generate-key").on("click", function (e) {
   e.preventDefault();
   const passphrase = $("#txt-passphrase").val();
@@ -27,6 +31,9 @@ $("#btn-generate-key").on("click", function (e) {
         window.api.writeKey(keyName, privateKeyArmored, publicKeyArmored);
       });
   }
+  $("#private-cpy-btn").show();
+  $("#public-cpy-btn").show();
+  $("#fingerprint-cpy-btn").show();
 });
 
 $("#btn-import-key").on("click", function (e) {
@@ -45,4 +52,19 @@ $("#btn-import-key").on("click", function (e) {
   });
 
   window.api.copyFiles(_files);
+});
+
+$("#private-cpy-btn").on("click", function (e) {
+  e.preventDefault();
+  var copyText = document.getElementById("txt-pvt-key");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied the key: " + copyText.value.substring(0,37));
+});
+$("#public-cpy-btn").on("click", function (e) {
+  e.preventDefault();
+  var copyText = document.getElementById("txt-pub-key");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied the key: " + copyText.value.substring(0,36));
 });

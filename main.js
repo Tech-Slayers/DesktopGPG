@@ -1,7 +1,10 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain, Menu } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu, dialog } = require("electron");
 const { openUrlMenuItem, openNewGitHubIssue, debugInfo } = require('electron-util');
 const path = require("path");
+const fs = require('fs');
+
+if (require('electron-squirrel-startup')) return;
 
 function createWindow() {
   // Create the browser window.
@@ -11,6 +14,7 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: true
     },
   });
 
@@ -82,50 +86,54 @@ const menuTemplate = Menu.buildFromTemplate([
       }),
       openUrlMenuItem({
         label: 'Source Code',
-        url: 'https://github.com/tech-slayers/desktopgpg'
+        url: 'https://github.com/tech-slayers/Janus'
       }),
       {
         label: 'Open an Issue on GitHub',
         click() {
           const body =
-`<!-- Please succinctly describe your issue and steps to reproduce it. -->
+`<!--- Provide a general summary of the issue in the Title above -->
+
+## Description
+<!--- Provide a more detailed introduction to the issue itself, and why you consider it to be a bug -->
+
+## Expected Behavior
+<!--- Tell us what should happen -->
+
+## Actual Behavior
+<!--- Tell us what happens instead -->
+
+## Possible Fix
+<!--- Not obligatory, but suggest a fix or reason for the bug -->
+
+## Steps to Reproduce
+<!--- Provide a link to a live example, or an unambiguous set of steps to -->
+<!--- reproduce this bug. Include code to reproduce, if relevant -->
+1.
+2.
+3.
+4.
+
+## Context
+<!--- How has this bug affected you? What were you trying to accomplish? -->
+
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
----
+**Debug Information:**
 ${debugInfo()}`;
           openNewGitHubIssue({
             user: 'tech-slayers',
-            repo: 'desktopgpg',
+            repo: 'janus',
+            assignee: 'AustinCasteel',
             body
           });
         },
-      },
-      {
-        type: 'separator'
-      },
-      {
-        role: 'reload'
-      },
-      {
-        role: 'forceReload'
-      },
-      {
-        role: 'toggleDevTools'
       },
     ],
   },
 ]);
 
-Menu.setApplicationMenu(menuTemplate);
+Menu.setApplicationMenu(menuTemplate); 
