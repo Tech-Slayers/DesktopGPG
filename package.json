@@ -42,7 +42,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "executableName": "Janus"
+        "name": "janus",
+        "executableName": "janus"
       },
       "makers": [
         {
