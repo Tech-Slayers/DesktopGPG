@@ -41,7 +41,9 @@
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "executableName": "Janus"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
@@ -58,11 +60,17 @@
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
+          "config": {
+            "productName": "Janus",
+            "description": "Simple and Portable Key Management Software"
+          }
         },
         {
           "name": "@electron-forge/maker-rpm",
-          "config": {}
+          "config": {
+            "productName": "Janus",
+            "description": "Simple and Portable Key Management Software"
+          }
         }
       ],
       "publishers": [
