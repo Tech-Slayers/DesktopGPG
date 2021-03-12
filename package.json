@@ -1,7 +1,7 @@
 {
   "name": "janus",
   "productName": "Janus",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Simple and Portable Key Management Software",
   "repository": "tech-slayers/janus",
   "author": "AustinCasteel <austin@techslayers.com>",
@@ -15,6 +15,7 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
+    "publish": "electron-forge publish",
     "make": "electron-forge make",
     "makea": "electron-forge make --platform darwin && electron-forge make --platform linux && electron-forge make --platform win32",
     "makem": "electron-forge make --platform mas",
@@ -26,6 +27,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron-forge/publisher-github": "^6.0.0-beta.54",
     "electron": "^12.0.0"
   },
   "dependencies": {
@@ -61,6 +63,18 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "tech-slayers",
+              "name": "janus",
+              "draft": true
+            }
+          }
         }
       ]
     }
