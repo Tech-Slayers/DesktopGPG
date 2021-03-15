@@ -8,6 +8,16 @@
     <title>Export Certificate - Janus</title>
     <link rel="stylesheet" href="../css/app.global.css" />
   </head>
+  <!-- <body>
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <button class="btn btn-primary" type="button" id="SEF-cancel-btn">Back</button>
+      </form>
+    </nav>
+    <hr />
+    <div class="container-fuild">
+      <h4>Select existing Key to Export:</h4>
+    </div> -->
   <body>
     <nav class="navbar navbar-light bg-light">
       <form class="form-inline">
@@ -16,7 +26,26 @@
     </nav>
     <hr />
     <div class="container-fluid">
-      <!-- Body Goes Here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!             -->
+      <h4>Select existing Key to Export:</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="sel-key">Stored keys:</label><br />
+          <select class="form-control" id="sel-keys"></select>
+        </div>
+        <div class="col align-self-center">
+          <div class="card">
+            <img class="card-img-top" id="img-key" />
+            <div class="card-body">
+              <h5 class="card-title" id="txt-key-id">Key information</h5>
+              <h6 class="card-subtitle mb-2 text-muted" id="txt-key-email"></h6>
+              <p class="card-text" id="txt-key-fp"></p>
+              <button class="btn btn-primary" id="btn-export-key">
+                Export Public Key
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Button Control-->
     <input id="encrypt-btn-clicked" type="file" accept="" hidden />

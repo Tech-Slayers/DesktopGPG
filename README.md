@@ -14,10 +14,16 @@
     <a href=" https://snyk.io/test/github/tech-slayers/Janus/">
       <img src=" https://snyk.io/test/github/tech-slayers/Janus/badge.svg"/>
     </a>
-    </br>
-    </br>
     <a href="https://github.com/tech-slayers/Janus/issues">
     	<img src="https://img.shields.io/github/issues/tech-slayers/Janus.svg">
+    </a>
+    </br>
+    </br>
+    <a href="https://github.com/tech-slayers/Janus/">
+    	<img src="https://github.com/Tech-Slayers/Janus/actions/workflows/build.yml/badge.svg">
+    </a>
+    <a href="https://github.com/tech-slayers/Janus/">
+    	<img src="https://github.com/Tech-Slayers/Janus/actions/workflows/release.yml/badge.svg">
     </a>
     <a href="">
     	<img src="https://img.shields.io/badge/contributions-welcome-orange.svg">
@@ -37,7 +43,7 @@
 ## Key Features
 
 * Cross Platform
-  * Can be used on any platform and transported around as a portable executable.
+  * Can be used on any platform.
 * GPG Management
   * Janus makes managing gpg keys, encrypting, & decrypting files easy.
 
@@ -47,11 +53,15 @@ All the documentation will be available soon!
 
 **Instructions.**
 
-npm install && npm run start
+- Download the latest version of Janus for your system and run the setup/install.
+- Janus should open automatically once the install is complete and you can open it again using the desktop shortcut or in the respected menu systems.
 
-**Publish.**
+**Contributing.**
 
-npm run make
+- Download the source
+- In the directory run `npm install` to get all the dependencies
+- To develop you can run `npm run start` to test code changes and you can got to `View -> Reload` to refresh the app without having to exit and relaunch the application
+- To test builds you can use `npm run make` to build the app for your platform
 
 ## Download
 
@@ -60,6 +70,10 @@ You can [download](https://github.com/Tech-Slayers/Janus/releases) the latest ve
 ## License
 
 MIT
+
+## Copyright
+
+[TechSlayers](https://github.com/tech-slayers) & [AustinCasteel](https://github.com/austincasteel)
 
 ---
 

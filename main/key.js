@@ -2,18 +2,15 @@ const fs = require("fs");
 const { readKey, generateKey, decryptKey } = require("openpgp");
 
 module.exports = {
-  readKey: readKey,
-
-  readPrivateKey: async (privateKeyData, passphrase) => {
-    const privateKey = await readKey({ binaryKey: privateKeyData });
-    await privateKey.decrypt(passphrase);
-    console.log(privateKey);
-    return privateKey;
+  readKeyFile: async (keyFilePath, isBinary) => {
+    const keyData = fs.readFileSync(keyFilePath);
+    return isBinary
+      ? await readKey({ binaryKey: keyData })
+      : await readKey({ armoredKey: keyData });
   },
 
   decryptKey: async (privateKey, passphrase) => {
     return await decryptKey({ privateKey, passphrase });
-    //privateKey.decrypt(passphrase);
   },
 
   generateRSA: async (passphrase, name, email) => {
@@ -33,5 +30,5 @@ module.exports = {
       userIds: [{ name, email }], // you can pass multiple user IDs
       passphrase, // protects the private key
     });
-  }
+  },
 };

@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain, Menu, dialog } = require("electron");
-const { openUrlMenuItem, openNewGitHubIssue, debugInfo } = require('electron-util');
+const { openUrlMenuItem, openNewGitHubIssue, debugInfo, showAboutWindow } = require('electron-util');
 const path = require("path");
 const fs = require('fs');
 
@@ -10,8 +10,8 @@ function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     title: app.name,
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 720,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: true
@@ -63,6 +63,10 @@ ipcMain.handle("app:get-keys", () => {
   return io.getKeys();
 });
 //
+ipcMain.handle("app:find-public-key", (event, private) => {
+  return io.findPublicKey(private);
+});
+//
 ipcMain.handle("app:download-public-key", (event, private) => {
   io.downloadPublicKey(private);
 });
@@ -72,14 +76,20 @@ const menuTemplate = Menu.buildFromTemplate([
     role: 'fileMenu'
   },
   {
-    role: 'editMenu'
-  },
-  {
   	role: 'viewMenu'
   },
   {
   	label: 'Help',
     submenu: [
+      {
+        label: 'About',
+        click() {
+          showAboutWindow({
+            icon: path.join(__dirname, 'renderer/Icon.png'),
+            copyright: 'Copyright © TechSlayers & Austin Casteel',
+          });
+        }
+      },
       openUrlMenuItem({
         label: 'Website',
         url: 'https://techslayers.com'
