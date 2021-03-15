@@ -23,30 +23,27 @@ const crypto = require("./main/crypto");
 contextBridge.exposeInMainWorld("api", {
   readFileSync: fs.readFileSync,
   copyFiles: (files = []) => {
-    ipcRenderer
-      .invoke("app:on-file-add", files)
-      .then(() => {
-        console.log("files copied");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    return ipcRenderer.invoke("app:on-file-add", files);
   },
   writeKey: (name, private, public) => {
-    ipcRenderer
-      .invoke("app:on-key-add", name, private, public)
-      .then(() => {
-        console.log("keys added");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    return ipcRenderer.invoke("app:on-key-add", name, private, public);
   },
   listKeys: () => {
     return ipcRenderer.invoke("app:get-keys");
   },
+  findPublicKey: (keyFile) => {
+    return ipcRenderer.invoke("app:find-public-key", keyFile);
+  },
   downloadPublicKey: (keyFile) => {
     return ipcRenderer.invoke("app:download-public-key", keyFile);
+  },
+  reloadKeys: () => {
+    return ipcRenderer.sendTo(1, "data:reload-keys");
+  },
+  onReloadKeys: (callBack) => {
+    return ipcRenderer.on("data:reload-keys", (e, ...args) =>
+      callBack(...args)
+    );
   },
   key: key,
   crypto: crypto,

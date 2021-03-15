@@ -16,7 +16,63 @@
     </nav>
     <hr />
     <div class="container-fluid">
-      <!-- Body Goes Here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!             -->
+      <h4>Select Private Key:</h4>
+      <div class="form-row">
+        <div class="col">
+          <label for="sel-key">Stored keys:</label><br />
+          <select class="form-control" id="sel-keys"></select>
+        </div>
+        <div class="col">
+          <div class="col">
+            <label for="txt-passphrase">Please enter key password:</label>
+            <input class="form-control"
+              type="password"
+              id="txt-passphrase"
+              placeholder="Secured Key Password"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <div class="container-fluid">
+      <h4>Encryption:</h4>
+      <div class="container">
+        <div class="form-row">
+          <div class="col align-self-center">
+            <label for="file-plain">Plain file:</label>
+            <input type="file" id="file-plain" />
+            <br /><br />
+            <label for="msg-plain">Plain Message: </label><br />
+            <textarea
+              class="form-control"
+              rows="5"
+              cols="30"
+              id="msg-plain"
+            ></textarea>
+          </div>
+          <div class="col-1 align-self-center">
+            <button class="btn btn-primary btn-lg" id="btn-encrypt">
+              &gt;&gt;
+            </button>
+          </div>
+          <div class="col">
+            <label>Encrypted file:</label><br />
+            <button class="btn btn-primary" id="btn-show-enc">View</button>
+            <button class="btn btn-success" id="btn-save-enc">Save</button
+            ><br />
+            <label for="msg-encrypted">Encrypted Message: </label><br />
+            <textarea
+              class="form-control"
+              rows="5"
+              cols="30"
+              id="msg-encrypted"
+            ></textarea>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Button Control-->
     <input id="encrypt-btn-clicked" type="file" accept="" hidden />

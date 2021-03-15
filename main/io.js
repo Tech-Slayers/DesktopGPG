@@ -12,8 +12,6 @@ fs.ensureDirSync(keysDir);
 
 // add files
 exports.addFiles = (files = []) => {
-  console.log("addFiles");
-  console.log(files);
   // copy `files` recursively (ignore duplicate file names)
   files.forEach((file) => {
     const filePath = path.resolve(keysDir, file.name);
@@ -61,20 +59,40 @@ exports.getKeys = () => {
     });
 };
 
-exports.downloadPublicKey = (privateKeyName) => {
+exports.findPublicKey = (privateKeyName) => {
   const files = fs.readdirSync(keysDir);
   const publicKeyFile = files.find((filename) => {
     const nameElements = privateKeyName.split("-").pop();
-    console.log(nameElements);
     const publicName = nameElements.startsWith("private")
       ? privateKeyName.replace("private", "public")
       : nameElements.startsWith("pvt")
       ? privateKeyName.replace("pvt", "pub")
       : privateKeyName;
-    console.log(publicName);
     return publicName == filename;
   });
-  console.log(publicKeyFile);
+  try {
+    const filePath = path.resolve(keysDir, publicKeyFile);
+    return {
+      name: publicKeyFile,
+      path: filePath,
+    };
+  } catch (err) {
+    console.log(err);
+    dialog.showErrorBox("app", "Unable to find public key file.");
+  }
+};
+
+exports.downloadPublicKey = (privateKeyName) => {
+  const files = fs.readdirSync(keysDir);
+  const publicKeyFile = files.find((filename) => {
+    const nameElements = privateKeyName.split("-").pop();
+    const publicName = nameElements.startsWith("private")
+      ? privateKeyName.replace("private", "public")
+      : nameElements.startsWith("pvt")
+      ? privateKeyName.replace("pvt", "pub")
+      : privateKeyName;
+    return publicName == filename;
+  });
   try {
     const filePath = path.resolve(keysDir, publicKeyFile);
     const keyContent = fs.readFileSync(filePath);

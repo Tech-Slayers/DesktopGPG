@@ -11,7 +11,6 @@ $("#generated-save-btn").on("click", function() {
     zip.file("fingerprint.txt", finger_save);
     zip.generateAsync({type:"blob"})
     .then(function(content) {
-        // see FileSaver.js
         saveAs(content, "generated-keys.zip");
     });
 });
@@ -24,48 +23,6 @@ $("#SEF-cancel-btn").on("click", function() {
     window.location.replace("./index.html");
 });
 
-// $("#btn-generate-key").on("click", function (e) {
-//   e.preventDefault();
-//   const passphrase = $("#txt-passphrase").val();
-//   const userName = $("#txt-full-name").val();
-//   const userEmail = $("#txt-email").val();
-//   const keyType = $("input[name='key-type']:checked").val();
-//   if (keyType == "ecc") {
-//     window.api.key
-//       .generateECC(passphrase, userName, userEmail)
-//       .then((keyPair) => {
-//         storeGeneratedKeyPair(userName, keyPair);
-//       })
-//       .catch(alert);
-//   } else {
-//     window.api.key
-//       .generateRSA(passphrase, userName, userEmail)
-//       .then((keyPair) => {
-//         storeGeneratedKeyPair(userName, keyPair);
-//       })
-//       .catch(alert);
-//   }
-// });
-// function storeGeneratedKeyPair(userName, keyPair) {
-//   const { privateKeyArmored, publicKeyArmored, key } = keyPair;
-//   const keyName = userName.replace(" ", "-");
-//   console.log(keyName);
-//   // Store keys
-//   window.api
-//     .writeKey(keyName, privateKeyArmored, publicKeyArmored)
-//     .then(window.api.reloadKeys)
-//     .catch(alert);
-//   // Display on UI
-//   var privateKeyArmored2 = $.trim(privateKeyArmored.val());
-//   var publicKeyArmored2 = $.trim(publicKeyArmored.val());
-//   $("#txt-pvt-key").val(privateKeyArmored2);
-//   $("#txt-pub-key").val(publicKeyArmored2);
-//   $("#1-1").removeAttr("style").hide();
-//   $("#1-2").removeAttr("style").hide();
-//   $("#2-1").show();
-//   $("#2-2").show();
-//   $("#2-3").show();
-// }
 $("#btn-generate-key").on("click", function (e) {
     e.preventDefault();
     const passphrase = $("#txt-passphrase").val();
@@ -86,6 +43,9 @@ $("#btn-generate-key").on("click", function (e) {
           var publicKeyArmored2 = $.trim($('#txt-pub-key').val());
           $("#txt-pvt-key").val(privateKeyArmored2);
           $("#txt-pub-key").val(publicKeyArmored2);
+          const fpr = toHex(key.keyPacket.fingerprint).toUpperCase();
+          const ffpr = "Fingerprint: " + fpr.slice(0, 4) + ' ' + fpr.slice(4, 8) + ' ' + fpr.slice(8, 12) + ' ' + fpr.slice(12, 16) + ' ' + fpr.slice(16, 20) + ' ' + fpr.slice(20, 24) + ' ' + fpr.slice(24, 28) + ' ' + fpr.slice(28, 32) + ' ' + fpr.slice(32, 36) + ' ' + fpr.slice(36);
+          $("#txt-fingerprint").val(ffpr);
         });
     } else {
       window.api.key
@@ -97,11 +57,13 @@ $("#btn-generate-key").on("click", function (e) {
           const keyName = userName.replace(" ", "-");
           console.log(keyName);
           window.api.writeKey(keyName, privateKeyArmored, publicKeyArmored);
-          //pvt_key = $.trim($("#txt-pvt-key").val());
           var privateKeyArmored2 = $.trim($('#txt-pvt-key').val());
           var publicKeyArmored2 = $.trim($('#txt-pub-key').val());
           $("#txt-pvt-key").val(privateKeyArmored2);
           $("#txt-pub-key").val(publicKeyArmored2);
+          const fpr = toHex(key.keyPacket.fingerprint).toUpperCase();
+          const ffpr = fpr.slice(0, 4) + ' ' + fpr.slice(4, 8) + ' ' + fpr.slice(8, 12) + ' ' + fpr.slice(12, 16) + ' ' + fpr.slice(16, 20) + ' ' + fpr.slice(20, 24) + ' ' + fpr.slice(24, 28) + ' ' + fpr.slice(28, 32) + ' ' + fpr.slice(32, 36) + ' ' + fpr.slice(36);
+          $("#txt-fingerprint").val(ffpr);
         });
     }
     $("#1-1").removeAttr("style").hide();
@@ -130,5 +92,11 @@ $("#fingerprint-cpy-btn").on("click", function (e) {
     var copyText = document.getElementById("txt-fingerprint");
     copyText.select();
     document.execCommand("copy");
-    alert("Copied the key: " + copyText.value.substring(0,36));
+    alert("Copied the Fingerprint: " + copyText.value);
 });
+
+function toHex(buffer) {
+  return Array.prototype.map
+    .call(buffer, (x) => ("00" + x.toString(16)).slice(-2))
+    .join("");
+}

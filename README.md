@@ -71,6 +71,10 @@ You can [download](https://github.com/Tech-Slayers/Janus/releases) the latest ve
 
 MIT
 
+## Copyright
+
+[TechSlayers](https://github.com/tech-slayers) & [AustinCasteel](https://github.com/austincasteel)
+
 ---
 
 > [techslayers.com](https://techslayers.com) &nbsp;&middot;&nbsp;
