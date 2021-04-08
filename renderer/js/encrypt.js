@@ -2,6 +2,8 @@ $("#SEF-cancel-btn").on("click", function() {
     window.location.replace("./index.html");
 });
 
+$("#btn-save-enc").removeAttr("style").hide();
+
 $("#sel-keys")
   .on("change", () => {
     const keyFile =
@@ -66,24 +68,24 @@ $("#btn-encrypt").on("click", function (e) {
   }
 });
 
-$("#btn-show-enc").on("click", function (e) {
-  e.preventDefault();
-  const abc = window.api.crypto
-    .armorMessage(lastEncryptedMessage)
-    .then((armoredMessage) => {
-      $("#msg-encrypted").val(armoredMessage);
-    })
-    .catch(alert);
-  console.log(abc);
-});
+// $("#btn-show-enc").on("click", function (e) {
+//   e.preventDefault();
+//   const abc = window.api.crypto
+//     .armorMessage(lastEncryptedMessage)
+//     .then((armoredMessage) => {
+//       $("#msg-encrypted").val(armoredMessage);
+//     })
+//     .catch(alert);
+//   console.log(abc);
+// });
 
 $("#btn-save-enc").on("click", function (e) {
   e.preventDefault();
 
   const element = document.createElement("a");
-  const file = new Blob([lastEncryptedMessage], { type: "text/plain" });
+  const file = new Blob([lastEncryptedMessage], { type: "application/pgp-encrypted" });
   element.href = URL.createObjectURL(file);
-  element.download = lastEncryptedMessage.path ?? "lastEncryptedMessage.gpg";
+  element.download = lastEncryptedMessage.path ?? "EncryptedFile.gpg";
   element.click();
 });
 
@@ -103,7 +105,7 @@ function encryptWithKey(keyFile) {
   }
 
   const plainFile = document.getElementById("file-plain").files[0];
-  const plainMessage = $("#msg-plain").val();
+  // const plainMessage = $("#msg-plain").val();
   if (plainFile) {
     console.log(plainFile);
     window.api.crypto
@@ -111,21 +113,22 @@ function encryptWithKey(keyFile) {
       .then((encryptedMessage) => {
         console.log(encryptedMessage);
         lastEncryptedMessage = encryptedMessage;
-        alert("File was encrypted successfully. Remember Save it!");
+        alert("File was encrypted successfully. Remember to Save it!");
+        $("#btn-save-enc").show();
       })
       .catch(alert);
     return;
-  } else if (plainMessage && !plainMessage.empty) {
-    console.log(plainMessage);
-    window.api.crypto
-      .encryptText(keyFile.path, keyType == 0, plainMessage)
-      .then((encryptedMessage) => {
-        console.log(encryptedMessage);
-        lastEncryptedMessage = encryptedMessage;
-        alert("Data was encrypted successfully. Remember Save it!");
-      })
-      .catch(alert);
-    return;
+  // } else if (plainMessage && !plainMessage.empty) {
+  //   console.log(plainMessage);
+  //   window.api.crypto
+  //     .encryptText(keyFile.path, keyType == 0, plainMessage)
+  //     .then((encryptedMessage) => {
+  //       console.log(encryptedMessage);
+  //       lastEncryptedMessage = encryptedMessage;
+  //       alert("Data was encrypted successfully. Remember Save it!");
+  //     })
+  //     .catch(alert);
+  //   return;
   } else {
     alert("Please provide an plain file or paste in text box");
     return;

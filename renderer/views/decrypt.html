@@ -77,37 +77,35 @@
       <h4>Decryption:</h4>
       <div class="container">
         <div class="form-row">
-          <div class="col align-self-center">
+          <div class="col-4 align-self-center">
             <label for="file-encrypted">Encrypted file:</label>
             <input type="file" id="file-encrypted" />
             <br /><br />
-            <label for="encrypted">Encrypted Message: </label><br />
-            <textarea
+            <!-- <label for="txt-encrypted">Encrypted Message: </label><br />
+            <textarea 
               class="form-control"
               rows="5"
               cols="30"
-              name="encrypted"
-              id="encrypted"
-            ></textarea>
+              name="txt-encrypted"
+              id="txt-encrypted"
+            ></textarea> -->
           </div>
-          <div class="col-1 align-self-center">
-            <button class="btn btn-primary btn-lg" id="btn-decrypt">
-              &gt;&gt;
-            </button>
+          <div class="col-4 align-self-center mx-auto">
+            <button class="btn btn-primary btn-lg" id="btn-decrypt">Decrypt</button>
           </div>
-          <div class="col">
-            <label>Plain file:</label><br />
-            <button class="btn btn-primary" id="btn-show">View</button>
+          <div class="col-4 align-self-center">
+            <label>Decrypted file:</label><br />
+            <!-- <button class="btn btn-primary" id="btn-show">View</button> -->
             <button class="btn btn-success" id="btn-save">Save</button
             ><br />
-            <label for="decrypted">Plain Message: </label><br />
+            <!-- <label for="txt-decrypted">Plain Message: </label><br />
             <textarea
               class="form-control"
               rows="5"
               cols="30"
-              name="decrypted"
-              id="decrypted"
-            ></textarea>
+              name="txt-decrypted"
+              id="txt-decrypted"
+            ></textarea> -->
           </div>
         </div>
       </div>
