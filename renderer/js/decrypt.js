@@ -124,6 +124,8 @@ $("#SEF-cancel-btn").on("click", function() {
 //   window.api.listKeys().then(bindKeys).catch(alert);
 // })();
 
+$("#btn-save").removeAttr("style").hide();
+
 $("#sel-keys")
   .on("change", () => {
     const keyFile =
@@ -197,7 +199,7 @@ $("#btn-decrypt").on("click", function (e) {
   console.log(passphrase);
 
   const encFile = document.getElementById("file-encrypted").files[0];
-  const encMessage = $("#txt-encrypted").val();
+  // const encMessage = $("#txt-encrypted").val();
   if (encFile) {
     console.log(encFile);
     window.api.crypto
@@ -205,40 +207,41 @@ $("#btn-decrypt").on("click", function (e) {
       .then((plainFile) => {
         console.log(plainFile);
         lastPlainMessage = plainFile;
-        alert("File was decrypted successfully.");
+        alert("File was decrypted successfully. Remember to Save it!");
+        $("#btn-save").show();
       })
       .catch(alert);
     return;
-  } else if (encMessage && !encMessage.empty) {
-    console.log(encMessage);
-    window.api.crypto
-      .decryptText(keyFile.path, keyType == 0, passphrase, encMessage)
-      .then((plainMessage) => {
-        console.log(plainMessage);
-        lastPlainMessage = plainMessage;
-        alert("Data was decrypted successfully.");
-      })
-      .catch(alert);
-    return;
+  // } else if (encMessage && !encMessage.empty) {
+  //   console.log(encMessage);
+  //   window.api.crypto
+  //     .decryptText(keyFile.path, keyType == 0, passphrase, encMessage)
+  //     .then((plainMessage) => {
+  //       console.log(plainMessage);
+  //       lastPlainMessage = plainMessage;
+  //       alert("Data was decrypted successfully.");
+  //     })
+  //     .catch(alert);
+  //   return;
   } else {
     alert("Please provide an encrypted file or paste in text box");
     return;
   }
 });
 
-$("#btn-show").on("click", function (e) {
-  e.preventDefault();
+// $("#btn-show").on("click", function (e) {
+//   e.preventDefault();
 
-  $("#txt-decrypted").val(lastPlainMessage.data);
-});
+//   $("#txt-decrypted").val(lastPlainMessage.data);
+// });
 
 $("#btn-save").on("click", function (e) {
   e.preventDefault();
 
   const element = document.createElement("a");
-  const file = new Blob([lastPlainMessage.data], { type: "text/plain" });
+  const file = new Blob([lastPlainMessage.data], { type: "application/zip" });
   element.href = URL.createObjectURL(file);
-  element.download = lastPlainMessage.path ?? "lastPlainMessage.txt";
+  element.download = lastPlainMessage.path ?? "Decrypted_Results.zip";
   element.click();
 });
 
