@@ -1,7 +1,7 @@
 {
   "name": "janus",
   "productName": "Janus",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple and Portable Key Management Software",
   "repository": "tech-slayers/janus",
   "author": "AustinCasteel <austin@techslayers.com>",
