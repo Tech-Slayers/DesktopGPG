@@ -3,6 +3,7 @@ $("#SEF-cancel-btn").on("click", function() {
 });
 
 $("#btn-save-enc").removeAttr("style").hide();
+$("#pw").removeAttr("style").hide();
 
 $("#sel-keys")
   .on("change", () => {
@@ -36,6 +37,8 @@ $("#sel-keys")
         $("#txt-key-fp").text(fpr.slice(0, 4) + ' ' + fpr.slice(4, 8) + ' ' + fpr.slice(8, 12) + ' ' + fpr.slice(12, 16) + ' ' + fpr.slice(16, 20) + ' ' + fpr.slice(20, 24) + ' ' + fpr.slice(24, 28) + ' ' + fpr.slice(28, 32) + ' ' + fpr.slice(32, 36) + ' ' + fpr.slice(36));
       })
       .catch(alert);
+
+      $("#pw").show();
   });
 
 $("#btn-export-key").on("click", (e) => {
@@ -107,6 +110,7 @@ function encryptWithKey(keyFile) {
   const plainFile = document.getElementById("file-plain").files[0];
   // const plainMessage = $("#msg-plain").val();
   if (plainFile) {
+    $("#btn-encrypt").removeAttr("style").hide();
     console.log(plainFile);
     window.api.crypto
       .encryptFile(keyFile.path, keyType == 0, plainFile.path)
@@ -115,6 +119,7 @@ function encryptWithKey(keyFile) {
         lastEncryptedMessage = encryptedMessage;
         alert("File was encrypted successfully. Remember to Save it!");
         $("#btn-save-enc").show();
+        $("#btn-encrypt").show();
       })
       .catch(alert);
     return;

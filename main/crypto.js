@@ -44,6 +44,11 @@ module.exports = {
     // return message.decrypt([privateKey]);
     const binaryMessage = fs.readFileSync(fileEncrypted);
     const message = await openpgp.readMessage({ binaryMessage });
+    console.log("Binary:");
+    console.log(binaryMessage);
+    console.log("Message:");
+    console.log(message);
+    console.log("Almost there");
     return openpgp.decrypt({ message, privateKeys: privateKey, format: 'binary' });
   },
 };

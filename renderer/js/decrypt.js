@@ -125,6 +125,7 @@ $("#SEF-cancel-btn").on("click", function() {
 // })();
 
 $("#btn-save").removeAttr("style").hide();
+$("#pw").removeAttr("style").hide();
 
 $("#sel-keys")
   .on("change", () => {
@@ -158,6 +159,8 @@ $("#sel-keys")
         $("#txt-key-fp").text(fpr.slice(0, 4) + ' ' + fpr.slice(4, 8) + ' ' + fpr.slice(8, 12) + ' ' + fpr.slice(12, 16) + ' ' + fpr.slice(16, 20) + ' ' + fpr.slice(20, 24) + ' ' + fpr.slice(24, 28) + ' ' + fpr.slice(28, 32) + ' ' + fpr.slice(32, 36) + ' ' + fpr.slice(36));
       })
       .catch(alert);
+
+      $("#pw").show();
   });
 
 $("#btn-export-key").on("click", (e) => {
@@ -201,6 +204,7 @@ $("#btn-decrypt").on("click", function (e) {
   const encFile = document.getElementById("file-encrypted").files[0];
   // const encMessage = $("#txt-encrypted").val();
   if (encFile) {
+    $("#btn-decrypt").removeAttr("style").hide();
     console.log(encFile);
     window.api.crypto
       .decryptFile(keyFile.path, keyType == 0, passphrase, encFile.path)
@@ -209,6 +213,7 @@ $("#btn-decrypt").on("click", function (e) {
         lastPlainMessage = plainFile;
         alert("File was decrypted successfully. Remember to Save it!");
         $("#btn-save").show();
+        $("#btn-decrypt").show();
       })
       .catch(alert);
     return;
