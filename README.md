@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://techslayers.com/"><img src="https://techslayers.com/wp-content/uploads/2020/09/Tech-Slayers_2.0-2048x399.png" alt="Janus" width="400"></a>
+  <a href="https://techslayers.com/"><img src="https://techslayers.com/wp-content/uploads/2020/09/Tech-Slayers_2.0-2048x399.png" alt="TurnKey" width="400"></a>
   <br>
   <br>
 </h1>
@@ -11,19 +11,19 @@
 	<a href="">
     	<img src="https://img.shields.io/badge/electron-v12.0-blue.svg">
     </a>
-    <a href=" https://snyk.io/test/github/tech-slayers/Janus/">
-      <img src=" https://snyk.io/test/github/tech-slayers/Janus/badge.svg"/>
+    <a href=" https://snyk.io/test/github/tech-slayers/TurnKey/">
+      <img src=" https://snyk.io/test/github/tech-slayers/TurnKey/badge.svg"/>
     </a>
-    <a href="https://github.com/tech-slayers/Janus/issues">
-    	<img src="https://img.shields.io/github/issues/tech-slayers/Janus.svg">
+    <a href="https://github.com/tech-slayers/TurnKey/issues">
+    	<img src="https://img.shields.io/github/issues/tech-slayers/TurnKey.svg">
     </a>
     </br>
     </br>
-    <a href="https://github.com/tech-slayers/Janus/">
-    	<img src="https://github.com/Tech-Slayers/Janus/actions/workflows/build.yml/badge.svg">
+    <a href="https://github.com/tech-slayers/TurnKey/">
+    	<img src="https://github.com/Tech-Slayers/TurnKey/actions/workflows/build.yml/badge.svg">
     </a>
-    <a href="https://github.com/tech-slayers/Janus/">
-    	<img src="https://github.com/Tech-Slayers/Janus/actions/workflows/release.yml/badge.svg">
+    <a href="https://github.com/tech-slayers/TurnKey/">
+    	<img src="https://github.com/Tech-Slayers/TurnKey/actions/workflows/release.yml/badge.svg">
     </a>
     <a href="">
     	<img src="https://img.shields.io/badge/contributions-welcome-orange.svg">
@@ -45,7 +45,7 @@
 * Cross Platform
   * Can be used on any platform.
 * GPG Management
-  * Janus makes managing gpg keys, encrypting, & decrypting files easy.
+  * TurnKey makes managing gpg keys, encrypting, & decrypting files easy.
 
 ## Documentation
 
@@ -53,8 +53,8 @@ All the documentation will be available soon!
 
 **Instructions.**
 
-- Download the latest version of Janus for your system and run the setup/install.
-- Janus should open automatically once the install is complete and you can open it again using the desktop shortcut or in the respected menu systems.
+- Download the latest version of TurnKey for your system and run the setup/install.
+- TurnKey should open automatically once the install is complete and you can open it again using the desktop shortcut or in the respected menu systems.
 
 **Contributing.**
 
@@ -65,7 +65,7 @@ All the documentation will be available soon!
 
 ## Download
 
-You can [download](https://github.com/Tech-Slayers/Janus/releases) the latest version of Janus from the release on the sidebar.
+You can [download](https://github.com/Tech-Slayers/TurnKey/releases) the latest version of TurnKey from the release on the sidebar.
 
 ## License
 

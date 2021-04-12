@@ -1,9 +1,9 @@
 {
-  "name": "janus",
-  "productName": "Janus",
+  "name": "turnkey",
+  "productName": "TurnKey",
   "version": "1.1.1",
   "description": "Simple and Portable Key Management Software",
-  "repository": "tech-slayers/janus",
+  "repository": "tech-slayers/turnkey",
   "author": "AustinCasteel <austin@techslayers.com>",
   "license": "MIT",
   "keywords": [
@@ -42,14 +42,14 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "janus",
-        "executableName": "janus"
+        "name": "turnkey",
+        "executableName": "turnkey"
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "Janus",
+            "name": "TurnKey",
             "description": "Simple and Portable Key Management Software"
           }
         },
@@ -62,14 +62,14 @@
         {
           "name": "@electron-forge/maker-deb",
           "config": {
-            "productName": "Janus",
+            "productName": "TurnKey",
             "description": "Simple and Portable Key Management Software"
           }
         },
         {
           "name": "@electron-forge/maker-rpm",
           "config": {
-            "productName": "Janus",
+            "productName": "TurnKey",
             "description": "Simple and Portable Key Management Software"
           }
         }
@@ -80,7 +80,7 @@
           "config": {
             "repository": {
               "owner": "tech-slayers",
-              "name": "janus",
+              "name": "turnkey",
               "draft": true
             }
           }
