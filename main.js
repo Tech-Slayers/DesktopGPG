@@ -96,7 +96,7 @@ const menuTemplate = Menu.buildFromTemplate([
       }),
       openUrlMenuItem({
         label: 'Source Code',
-        url: 'https://github.com/tech-slayers/TurnKey'
+        url: 'https://github.com/tech-slayers/TrueKey'
       }),
       {
         label: 'Open an Issue on GitHub',
@@ -136,7 +136,7 @@ If applicable, add screenshots to help explain your problem.
 ${debugInfo()}`;
           openNewGitHubIssue({
             user: 'tech-slayers',
-            repo: 'turnkey',
+            repo: 'truekey',
             assignee: 'AustinCasteel',
             body
           });

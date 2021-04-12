@@ -1,9 +1,9 @@
 {
-  "name": "turnkey",
-  "productName": "TurnKey",
+  "name": "truekey",
+  "productName": "TrueKey",
   "version": "1.1.2",
   "description": "Simple and Portable Key Management Software",
-  "repository": "tech-slayers/turnkey",
+  "repository": "tech-slayers/truekey",
   "author": "AustinCasteel <austin@techslayers.com>",
   "license": "MIT",
   "keywords": [
@@ -42,14 +42,14 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "turnkey",
-        "executableName": "turnkey"
+        "name": "truekey",
+        "executableName": "truekey"
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "TurnKey",
+            "name": "TrueKey",
             "description": "Simple and Portable Key Management Software"
           }
         },
@@ -62,14 +62,14 @@
         {
           "name": "@electron-forge/maker-deb",
           "config": {
-            "productName": "TurnKey",
+            "productName": "TrueKey",
             "description": "Simple and Portable Key Management Software"
           }
         },
         {
           "name": "@electron-forge/maker-rpm",
           "config": {
-            "productName": "TurnKey",
+            "productName": "TrueKey",
             "description": "Simple and Portable Key Management Software"
           }
         }
@@ -80,7 +80,7 @@
           "config": {
             "repository": {
               "owner": "tech-slayers",
-              "name": "turnkey",
+              "name": "truekey",
               "draft": true
             }
           }
