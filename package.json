@@ -1,7 +1,7 @@
 {
   "name": "truekey",
   "productName": "TrueKey",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Simple and Portable Key Management Software",
   "repository": "tech-slayers/truekey",
   "author": "AustinCasteel <austin@techslayers.com>",
