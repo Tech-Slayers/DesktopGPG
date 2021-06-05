@@ -63,6 +63,7 @@
           "name": "@electron-forge/maker-deb",
           "config": {
             "productName": "TrueKey",
+            "executableName": "TrueKey",
             "description": "Simple and Portable Key Management Software"
           }
         },
@@ -70,6 +71,7 @@
           "name": "@electron-forge/maker-rpm",
           "config": {
             "productName": "TrueKey",
+            "executableName": "TrueKey",
             "description": "Simple and Portable Key Management Software"
           }
         }
