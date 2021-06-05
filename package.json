@@ -42,15 +42,16 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "TrueKey",
-        "executableName": "TrueKey"
+        "name": "truekey",
+        "executableName": "truekey"
       },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "TrueKey",
-            "description": "Simple and Portable Key Management Software"
+            "description": "Simple and Portable Key Management Software",
+            "loadingGif": "/renderer/img/245.gif"
           }
         },
         {
