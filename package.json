@@ -42,8 +42,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "truekey",
-        "executableName": "truekey"
+        "name": "TrueKey",
+        "executableName": "TrueKey"
       },
       "makers": [
         {

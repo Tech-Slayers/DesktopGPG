@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>Import Certificate - TrueKey</title>
+    <title>Import Keys - TrueKey</title>
     <link rel="stylesheet" href="../css/app.global.css" />
   </head>
   <body>
@@ -15,6 +15,15 @@
       </form>
     </nav>
     <hr />
+    <div class="container-fluid">
+      <h4>Information:</h4>
+      <div class="form-row">
+        <p>Imported keys need to have a suffix based on which key it is as well as the suffix type need to match between keys.</p>
+        <p>Public keys need to have either "-public" or "-pub", where as private keys need to have either "-private" or "-pvt" respectively</p>
+        <p><code>Public:   ExampleKey-public.key</code><br /><code>Private:  ExampleKey-private.key</code></p>
+      </div>
+    </div>
+    <br /><br />
     <div class="container-fluid">
       <h4>Import from file:</h4>
       <div class="form-row">
@@ -36,7 +45,7 @@
         </div>
       </div>
     </div>
-    <hr />
+    <!-- <hr />
     <div class="form-row p-1">
       <div class="col align-self-center">
         <label for="sel-key">Stored keys:</label><br />
@@ -55,8 +64,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="form-row">
+    </div> -->
+    <!-- <div class="form-row">
       <select class="form-control" id="sel-keys"></select>
       <div class="col align-self-center">
         <div class="card">
@@ -65,13 +74,13 @@
             <h5 class="card-title" id="txt-key-id">Key information</h5>
             <h6 class="card-subtitle mb-2 text-muted" id="txt-key-email"></h6>
             <p class="card-text" id="txt-key-fp"></p>
-            <!-- <button class="btn btn-primary" id="btn-export-key">
+            <button class="btn btn-primary" id="btn-export-key">
               Export Public Key
-            </button> -->
+            </button>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Button Control-->
     <input id="encrypt-btn-clicked" type="file" accept="" hidden />
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>

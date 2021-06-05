@@ -97,7 +97,7 @@ exports.downloadPublicKey = (privateKeyName) => {
     const filePath = path.resolve(keysDir, publicKeyFile);
     const keyContent = fs.readFileSync(filePath);
     dialog.showSaveDialog(
-      { defaultPath: publicKeyFile },
+      { defaultPath: publicKeyFile, title: "Export Certificates", buttonLabel: "Save Public Key", filters:[{name: 'OpenPGP Certificates', extensions: ['asc', 'key']}]},
       keyContent,
       console.log
     );

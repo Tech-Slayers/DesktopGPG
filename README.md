@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://techslayers.com/"><img src="https://techslayers.com/wp-content/uploads/2020/09/Tech-Slayers_2.0-2048x399.png" alt="TrueKey" width="400"></a>
+  <h1 align="center">TrueKey</h1>
   <br>
   <br>
 </h1>
@@ -53,15 +53,15 @@ All the documentation will be available soon!
 
 **Instructions.**
 
-- Download the latest version of TrueKey for your system and run the setup/install.
-- TrueKey should open automatically once the install is complete and you can open it again using the desktop shortcut or in the respected menu systems.
+* Download the latest version of TrueKey for your system and run the setup/install.
+* TrueKey should open automatically once the install is complete and you can open it again using the desktop shortcut or in the respected menu systems.
 
 **Contributing.**
 
-- Download the source
-- In the directory run `npm install` to get all the dependencies
-- To develop you can run `npm run start` to test code changes and you can got to `View -> Reload` to refresh the app without having to exit and relaunch the application
-- To test builds you can use `npm run make` to build the app for your platform
+* Download the source
+* In the directory run `npm install` to get all the dependencies
+* To develop you can run `npm run start` to test code changes and you can got to `View -> Reload` to refresh the app without having to exit and relaunch the application
+* To test builds you can use `npm run make` to build the app for your platform
 
 ## Download
 

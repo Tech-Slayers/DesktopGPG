@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>Sign/Encrypt Files - TrueKey</title>
+    <title>Encrypt Files - TrueKey</title>
     <link rel="stylesheet" href="../css/app.global.css" />
   </head>
   <body>
@@ -37,7 +37,7 @@
     </div>
     <br />
     <hr />
-    <div class="container-fluid">
+    <div id="fs" class="container-fluid">
       <h4>Encryption:</h4>
       <div class="container">
         <div class="form-row">
@@ -55,6 +55,7 @@
           </div>
           <div class="col-4 align-self-center">
             <button class="btn btn-primary btn-lg" id="btn-encrypt">Encrypt</button>
+            <img src="../img/245.gif" loop=infinite id="processing">
           </div>
           <div class="col-4 align-self-center">
             <label>Encrypted file:</label><br />

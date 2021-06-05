@@ -2,16 +2,17 @@ $("#generated-save-btn").on("click", function() {
     var pvt_save = $.trim($("#txt-pvt-key").val());
     var pub_save = $.trim($('#txt-pub-key').val());
     var finger_save = $.trim($('#txt-fingerprint').val());
+    const userName = $("#txt-full-name").val();
+    const keyName = userName.replace(" ", "-");
     var zip = new JSZip();
     if($('#pvt-key-include').prop("checked") == true){
-      zip.file("private-key.asc", pvt_save);
+      zip.file(keyName+"-private.asc", pvt_save);
     }
-    //zip.file("private-key.asc", pvt_save);
-    zip.file("public-key.asc", pub_save);
-    zip.file("fingerprint.txt", finger_save);
+    zip.file(keyName+"-public.asc", pub_save);
+    zip.file(keyName+"-fingerprint.txt", finger_save);
     zip.generateAsync({type:"blob"})
     .then(function(content) {
-        saveAs(content, "generated-keys.zip");
+        saveAs(content, keyName+"-generated-keys.zip");
     });
 });
 

@@ -4,6 +4,7 @@ $("#SEF-cancel-btn").on("click", function() {
 
 $("#btn-save-enc").removeAttr("style").hide();
 $("#pw").removeAttr("style").hide();
+$("#processing").removeAttr("style").hide();
 
 $("#sel-keys")
   .on("change", () => {
@@ -111,6 +112,8 @@ function encryptWithKey(keyFile) {
   // const plainMessage = $("#msg-plain").val();
   if (plainFile) {
     $("#btn-encrypt").removeAttr("style").hide();
+    $("#btn-save-enc").removeAttr("style").hide();
+    $("#processing").show();
     console.log(plainFile);
     window.api.crypto
       .encryptFile(keyFile.path, keyType == 0, plainFile.path)
@@ -119,6 +122,7 @@ function encryptWithKey(keyFile) {
         lastEncryptedMessage = encryptedMessage;
         alert("File was encrypted successfully. Remember to Save it!");
         $("#btn-save-enc").show();
+        $("#processing").removeAttr("style").hide();
         $("#btn-encrypt").show();
       })
       .catch(alert);
