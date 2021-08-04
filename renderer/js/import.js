@@ -18,6 +18,7 @@ $("#btn-import-key").on("click", function (e) {
     });
   
     window.api.copyFiles(_files).then(window.api.reloadKeys).catch(alert);
+    alert("Key pair was imported successfully!");
 });
 
 $("#sel-keys")

@@ -35,8 +35,8 @@ $("#btn-generate-key").on("click", function (e) {
         .generateECC(passphrase, userName, userEmail)
         .then((keyPair) => {
           const { privateKeyArmored, publicKeyArmored, key } = keyPair;
-          $("#txt-private-key").val(privateKeyArmored);
-          $("#txt-public-key").val(publicKeyArmored);
+          $("#txt-pvt-key").val(privateKeyArmored);
+          $("#txt-pub-key").val(publicKeyArmored);
           const keyName = userName.replace(" ", "-");
           console.log(keyName);
           window.api.writeKey(keyName, privateKeyArmored, publicKeyArmored);
