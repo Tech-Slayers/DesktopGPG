@@ -33,7 +33,7 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "electron-squirrel-startup": "^1.0.0",
-    "electron-util": "^0.14.2",
+    "electron-util": "^0.17.2",
     "fs-extra": "^9.1.0",
     "jquery": "^3.6.0",
     "openpgp": "^5.0.0-1",
